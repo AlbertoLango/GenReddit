@@ -1,12 +1,28 @@
-#!pip install pytube
+#!pip install pytubefix
+from pytubefix import YouTube
+from pytubefix.cli import on_progress
 
-from pytube import YouTube 
+
 def download_video(url, saveLocation):
-    youtube = YouTube(url)
-    youtube.check_availability()
-    stream = youtube.streams.get_highest_resolution()
-    stream.download(output_path=saveLocation)
+    yt = YouTube(url, on_progress_callback = on_progress)
+    print("Downloading " , yt.title)
+    ys = yt.streams.get_highest_resolution()
+    ys.download(saveLocation)
 
+
+# For loop that goes through the text file of videos 
 with open("BackEND/Videos.txt", "r") as urls:
-     for url in urls:
-        download_video(url.strip(), "BackEND/Videos Downloaded")
+    lines = urls.readlines() 
+    for url in lines:
+        url = url.strip() 
+        print(url)
+        download_video(url, "BackEND/Videos Downloaded")
+
+# User videos? 
+
+download_video(user_url, "BackEND/Videos Downloaded")
+
+
+
+
+
