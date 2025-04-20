@@ -1,4 +1,8 @@
 #uses Github Repo for Tiktok Audio voices with the use of a funciton call we can use different populat tiktok voices
+# python3 -m pip install -r BackEND/TikTokVoice/TikTok-Voice-TTS/requirements.txt must be ran in ~ file 
+
+
+
 import sys
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent         
@@ -18,8 +22,8 @@ def generate_text (voice, inputText):
     #   - play sound after generating the audio
 
 
-selected_voice = 'US_MALE_3' # hardcoded for now 
 
+selected_voice = 'US_MALE_3' # hardcoded for now 
 with open('BackEND/TikTokVoice/TikTok-Voice-TTS/TTS_Script/Script.txt', "r") as file:
     content = file.readlines()
     generate_text( selected_voice, content[0])
