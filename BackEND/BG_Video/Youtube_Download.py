@@ -11,16 +11,13 @@ def download_video(url, saveLocation):
 
 
 # For loop that goes through the text file of videos 
-with open("BackEND/Videos.txt", "r") as urls:
+with open("BackEND/BG_Video/Videos.txt", "r") as urls:
     lines = urls.readlines() 
     for url in lines:
         url = url.strip() 
         print(url)
-        download_video(url, "BackEND/Videos Downloaded")
+        download_video(url, "BackEND/BG_Video/Videos Downloaded")
 
-# User videos? 
-
-download_video(user_url, "BackEND/Videos Downloaded")
 
 
 
